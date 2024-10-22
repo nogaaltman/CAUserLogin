@@ -12,12 +12,14 @@ import use_case.signup.SignupUserDataAccessInterface;
  * In-memory implementation of the DAO for storing user data. This implementation does
  * NOT persist data between runs of the program.
  */
+@SuppressWarnings({"checkstyle:RegexpMultiline", "checkstyle:SuppressWarnings"})
 public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface,
                                                      LoginUserDataAccessInterface,
                                                      ChangePasswordUserDataAccessInterface {
 
     private final Map<String, User> users = new HashMap<>();
-    private String currentUser;
+    @SuppressWarnings("checkstyle:ExplicitInitialization")
+    private String currentUser = null;
 
 
     @Override
@@ -38,6 +40,11 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     @Override
     public void setCurrentUser(String name) {
         this.currentUser = name;
+    }
+
+    @Override
+    public String getCurrentUser() {
+        return currentUser;
     }
 
     @Override

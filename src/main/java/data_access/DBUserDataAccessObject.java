@@ -19,7 +19,8 @@ import use_case.signup.SignupUserDataAccessInterface;
 /**
  * The DAO for user data.
  */
-public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterface,
+@SuppressWarnings({"checkstyle:OuterTypeFilename", "checkstyle:SuppressWarnings"})
+public class DBUserDataAccessObject implements SignupUserDataAccessInterface,
                                                LoginUserDataAccessInterface,
                                                ChangePasswordUserDataAccessInterface {
     private static final int SUCCESS_CODE = 200;
@@ -68,6 +69,11 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     @Override
     public void setCurrentUser(String name) {
 
+    }
+
+    @Override
+    public String getCurrentUser() {
+        return "";
     }
 
     @Override
