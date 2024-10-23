@@ -1,8 +1,7 @@
 package app;
 
 import java.awt.*;
-import javax.swing.JPanel;
-
+import javax.swing.*;
 
 import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;
