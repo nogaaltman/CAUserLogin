@@ -1,5 +1,9 @@
 package app;
 
+import java.awt.*;
+import javax.swing.JPanel;
+
+
 import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;
 import interface_adapter.ViewManagerModel;
@@ -10,9 +14,6 @@ import view.LoggedInView;
 import view.LoginView;
 import view.SignupView;
 import view.ViewManager;
-
-import javax.swing.*;
-import java.awt.*;
 
 /**
  * The version of Main with an external database used to persist user data.
@@ -49,7 +50,8 @@ public class MainWithInMemory {
         final LoggedInViewModel loggedInViewModel = new LoggedInViewModel();
         final SignupViewModel signupViewModel = new SignupViewModel();
 
-        final InMemoryUserDataAccessObject userDataAccessObject = new InMemoryUserDataAccessObject(new CommonUserFactory());
+        final InMemoryUserDataAccessObject userDataAccessObject =
+                new InMemoryUserDataAccessObject(new CommonUserFactory());
 
         final SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel,
                                                                   signupViewModel, userDataAccessObject);
